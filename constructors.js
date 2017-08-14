@@ -19,17 +19,32 @@
 
 function BadGuy(){};
 
-let BadGuy = new BadGuy();
+let badguy = new BadGuy();
 console.log(BadGuy);
 
 // 2) Give the BadGuy constructor the ability to take a parameter of "name".
 // Inside the constructor function, assign the parameter "name" to the property of name so when you
 // create a new instance of BadGuy, you can assign the bad guy a name.
 
+function BadGuy(name, tagline){
+  this.name = name;
+  this.tagline = tagline;
+  this.sayTag = function(){
+    console.log(this.name + " said " + this.tagline);
+  }
+}
+
 // 3) Create a new instance of BadGuy called badDude. Give badDude the name of "Hans Gruber"
+let badDude = new BadGuy("Hans Gruber", "That's a beautiful suit....I'd hate to ruin it.")
+console.log(badDude.name);
 
 // 4) Create a new instance of BadGuy called scaryGuy. Give scaryGuy the name of "Freddy"
+let scaryGuy = new BadGuy("Freddy")
+console.log(scaryGuy.name);
 
 // 5) Give the BadGuy constructor a tagLine method that will take the parameter "tagline" and say the tag line when prompted by a new instance in the following format: console.log("this.name" + " said " + this.tagline); ...
 
+
+
 // 6) Make Hans Gruber (the badDude instance say "That's a beautiful suit....I'd hate to ruin it.")
+console.log(badDude.sayTag());
